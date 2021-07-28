@@ -12,6 +12,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+var dev_db_url = "mongodb+srv://admin-Kelvin:Jenifer2012@cluster0.h7rrz.mongodb.net/todolistDB?retryWrites=true&w=majority"
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect("mongodb+srv://admin-Kelvin:Jenifer2012@cluster0.h7rrz.mongodb.net/todolistDB?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 
@@ -146,6 +148,6 @@ if (port == null || port == "") {
 }
 app.listen(port);
 
-app.listen(port, function() {
+app.listen(3000, function() {
   console.log("Server started on port succesfully");
 });
